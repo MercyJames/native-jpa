@@ -32,7 +32,7 @@ jobs:
       - name: Build
         shell: bash
         run: |
-          mvn clean package && mvn -Pnative compile-no-fork
+          mvn clean package && mvn -Pnative native:compile-no-fork
           ls target
           sleep 60
           mvn clean
