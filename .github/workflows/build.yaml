@@ -32,8 +32,7 @@ jobs:
       - name: Build
         shell: bash
         run: |
-          mvn clean -Pnative package
+          mvn clean package && mvn -Pnative compile-no-fork
           ls target
-          ./target/native-jpa
           sleep 60
           mvn clean

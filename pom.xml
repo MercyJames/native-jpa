@@ -77,6 +77,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <mainClass>com.ryan.micro.demo.DemoServiceApplication</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
@@ -92,6 +93,7 @@
                 <configuration>
                     <verbose>true</verbose>
                     <debug>false</debug>
+                    <mainClass>com.ryan.micro.demo.DemoServiceApplication</mainClass>
                     <buildArgs combine.children="append">
                         <buildArg>--no-fallback</buildArg>
                         <buildArg>-H:+ReportExceptionStackTraces</buildArg>
@@ -100,16 +102,6 @@
                         <buildArg>-march=compatibility</buildArg>
                     </buildArgs>
                 </configuration>
-                <extensions>true</extensions>
-                <executions>
-                    <execution>
-                        <id>build-native-image</id>
-                        <goals>
-                            <goal>compile-no-fork</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
