@@ -37,10 +37,10 @@ jobs:
       - name: Build
         shell: bash
         run: |
-          mvn clean package
-          mvn spring-boot:process-aot
-          java -agentlib:native-image-agent=config-output-dir=src/main/resources/META-INF/native-image -jar ./target/native-jpa-1.0.0-SNAPSHOT.jar
-          mvn -Pnative native:compile-no-fork
+          mvn clean
+          mvn -Pnative -Dagent=true package
+          mvn -Pnative native:metadata-copy
+          mvn -Pnative native:compile
           ls target
           ./target/native-jpa
           sleep 60

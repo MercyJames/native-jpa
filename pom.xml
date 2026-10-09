@@ -80,11 +80,25 @@
             <plugin>
                 <groupId>org.graalvm.buildtools</groupId>
                 <artifactId>native-maven-plugin</artifactId>
+
                 <configuration>
                     <mainClass>com.ryan.micro.demo.DemoServiceApplication</mainClass>
+                    <agent>
+                        <enabled>true</enabled>
+                        <metadataCopy>
+                            <outputDirectory>src/main/resources/META-INF/native-image</outputDirectory>
+                            <merge>true</merge>
+                        </metadataCopy>
+                    </agent>
                     <buildArgs combine.children="append">
                         <buildArg>-H:+UnlockExperimentalVMOptions</buildArg>
+                        <buildArg>
+                            --initialize-at-build-time=org.springframework.boot.loader.nio.file.NestedFileSystemProvider
+                        </buildArg>
                         <buildArg>-H:ServiceLoaderFeatureExcludeServices=org.hibernate.bytecode.spi.BytecodeProvider</buildArg>
+                        <buildArg>
+                            --initialize-at-build-time=net.bytebuddy
+                        </buildArg>
                     </buildArgs>
                 </configuration>
             </plugin>
