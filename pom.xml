@@ -75,32 +75,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.ryan.micro.demo.DemoServiceApplication</mainClass>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.graalvm.buildtools</groupId>
                 <artifactId>native-maven-plugin</artifactId>
-                <configuration>
-                    <verbose>true</verbose>
-                    <debug>false</debug>
-                    <mainClass>com.ryan.micro.demo.DemoServiceApplication</mainClass>
-                    <buildArgs combine.children="append">
-                        <buildArg>--no-fallback</buildArg>
-                        <buildArg>-H:+ReportExceptionStackTraces</buildArg>
-                        <buildArg>-H:+ReportUnsupportedElementsAtRuntime</buildArg>
-                        <buildArg>-H:Name=${project.artifactId}</buildArg>
-                        <buildArg>-march=compatibility</buildArg>
-                    </buildArgs>
-                </configuration>
             </plugin>
         </plugins>
     </build>
