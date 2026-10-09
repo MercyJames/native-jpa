@@ -1,0 +1,53 @@
+name: Native Image
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  build-dev:
+    name: 'Build Native Image ${{ matrix.platform }}'
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        include:
+          - os: 'ubuntu-latest'
+            platform: 'linux-amd64'
+    runs-on: ${{matrix.os}}
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v6
+
+      - uses: graalvm/setup-graalvm@v1
+        with:
+          distribution: 'graalvm'
+          java-version: '17'
+          java-package: 'jdk'
+          components: 'native-image'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cache: maven
+      #      - name: Fix Maven Wrapper permissions
+      #        run: chmod +x mvnw
+      #        if: runner.os != 'Windows'
+      - name: Build
+        shell: bash
+        run: |
+          mvn clean -Pnative package native:compile-no-fork
+          ls target
+          ./target/native-jpa
+#          java -agentlib:native-image-agent=config-output-dir=./config -jar ./target/hello-graalvm-1.0.0-SNAPSHOT.jar &
+          sleep 60
+          mvn clean
+#          curl http://localhost:9000/demo
+#          ls ./config
+#      - name: Upload build artifacts
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: build-artifacts ${{ matrix.version }} on ${{ matrix.os }}
+#          path: |
+#            ./config
+#            ./target/hello-graalvm*
