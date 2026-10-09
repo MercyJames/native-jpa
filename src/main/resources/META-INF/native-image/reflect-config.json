@@ -2089,7 +2089,8 @@
 },
 {
   "name":"org.hibernate.bytecode.internal.bytebuddy.BytecodeProviderImpl",
-  "queryAllPublicMethods":true
+  "allDeclaredConstructors": true,
+  "allDeclaredMethods": true
 },
 {
   "name":"org.hibernate.bytecode.spi.ReflectionOptimizer$InstantiationOptimizer",
