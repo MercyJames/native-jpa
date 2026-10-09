@@ -27,13 +27,12 @@ jobs:
           distribution: 'liberica'
           java-version: '17'
           java-package: 'jdk'
-          components: 'native-image'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cache: maven
       - name: Build
         shell: bash
         run: |
-          mvn clean -Pnative package native:compile-no-fork
+          mvn clean -Pnative package
           ls target
           ./target/native-jpa
           sleep 60
