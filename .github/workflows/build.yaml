@@ -38,7 +38,7 @@ jobs:
         shell: bash
         run: |
           mvn clean package
-          java -agentlib:native-image-agent=config-output-dir=${project.basedir}/src/main/resources/META-INF/native-image -jar ./target/native-jpa-1.0.0-SNAPSHOT.jar
+          java -agentlib:native-image-agent=config-output-dir=src/main/resources/META-INF/native-image -jar ./target/native-jpa-1.0.0-SNAPSHOT.jar
           mvn -Pnative native:compile-no-fork
           ls target
           ./target/native-jpa
