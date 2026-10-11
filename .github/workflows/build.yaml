@@ -11,10 +11,10 @@ jobs:
     name: 'native-demo Build Native Image ${{ matrix.platform }}'
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
+        os: [ windows-latest ]
         include:
-          - os: 'ubuntu-latest'
-            platform: 'linux-amd64'
+          - os: 'windows-latest'
+            platform: 'amd-amd64'
     runs-on: ${{matrix.os}}
     permissions:
       contents: write
