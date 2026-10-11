@@ -12,12 +12,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.1</version>
+        <version>3.2.4</version>
         <relativePath/>
     </parent>
 
     <properties>
-        <java.version>25</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -36,6 +36,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-graalvm</artifactId>
         </dependency>
 
         <dependency>
@@ -67,6 +72,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -83,22 +89,19 @@
 
                 <configuration>
                     <mainClass>com.ryan.micro.demo.DemoServiceApplication</mainClass>
-                    <agent>
-                        <enabled>true</enabled>
-                        <metadataCopy>
-                            <outputDirectory>src/main/resources/META-INF/native-image</outputDirectory>
-                            <merge>true</merge>
-                        </metadataCopy>
-                    </agent>
+<!--                    <agent>-->
+<!--                        <enabled>true</enabled>-->
+<!--                        <metadataCopy>-->
+<!--                            <outputDirectory>src/main/resources/META-INF/native-image</outputDirectory>-->
+<!--                            <merge>true</merge>-->
+<!--                        </metadataCopy>-->
+<!--                    </agent>-->
                     <buildArgs combine.children="append">
                         <buildArg>-H:+UnlockExperimentalVMOptions</buildArg>
                         <buildArg>
                             --initialize-at-build-time=org.springframework.boot.loader.nio.file.NestedFileSystemProvider
                         </buildArg>
                         <buildArg>-H:ServiceLoaderFeatureExcludeServices=org.hibernate.bytecode.spi.BytecodeProvider</buildArg>
-                        <buildArg>
-                            --initialize-at-build-time=net.bytebuddy
-                        </buildArg>
                     </buildArgs>
                 </configuration>
             </plugin>

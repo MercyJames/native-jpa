@@ -31,15 +31,14 @@ jobs:
       - uses: graalvm/setup-graalvm@v1
         with:
           distribution: 'liberica'
-          java-version: '25'
+          java-version: '17'
           java-package: 'jdk'
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build
         shell: bash
         run: |
           mvn clean
-          mvn -Pnative -Dagent=true package
-          mvn -Pnative native:metadata-copy
+          mvn package
           mvn -Pnative native:compile
           ls target
           ./target/native-jpa
