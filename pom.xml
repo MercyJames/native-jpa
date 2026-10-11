@@ -119,6 +119,7 @@
                             --initialize-at-build-time=org.springframework.boot.loader.nio.file.NestedFileSystemProvider
                         </buildArg>
                         <buildArg>-H:ServiceLoaderFeatureExcludeServices=org.hibernate.bytecode.spi.BytecodeProvider</buildArg>
+                        <buildArg>--initialize-at-build-time=org.hibernate.bytecode.internal.bytebuddy.BytecodeProviderImpl</buildArg>
                     </buildArgs>
                 </configuration>
             </plugin>
