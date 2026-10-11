@@ -14,5 +14,5 @@ spring:
         format_sql: true
         highlight_sql: true
         bytecode:
-          provider: bytebuddy
+          provider: none
         show_sql: true

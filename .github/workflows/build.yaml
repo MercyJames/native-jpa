@@ -13,8 +13,8 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         include:
-          - os: 'linux-latest'
-            platform: 'amd-amd64'
+          - os: 'ubuntu-latest'
+            platform: 'linux-amd64'
     runs-on: ${{matrix.os}}
     permissions:
       contents: write
