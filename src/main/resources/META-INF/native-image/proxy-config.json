@@ -57,6 +57,12 @@
     "interfaces":["net.bytebuddy.dynamic.loading.ClassInjector$UsingLookup$MethodHandles$Lookup"]
   },
   {
+    "interfaces":["net.bytebuddy.utility.JavaModule$Module"]
+  },
+  {
+    "interfaces":["net.bytebuddy.utility.JavaModule$Resolver"]
+  },
+  {
     "interfaces":["org.hibernate.Session","org.springframework.orm.jpa.EntityManagerProxy"]
   },
   {

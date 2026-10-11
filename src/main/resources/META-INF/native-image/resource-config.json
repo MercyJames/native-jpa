@@ -137,6 +137,16 @@
   }, {
     "pattern":"\\Qorg/hibernate/SharedSessionContract.class\\E"
   }, {
+    "pattern":"\\Qorg/hibernate/engine/spi/Managed.class\\E"
+  }, {
+    "pattern":"\\Qorg/hibernate/engine/spi/ManagedEntity.class\\E"
+  }, {
+    "pattern":"\\Qorg/hibernate/engine/spi/PersistentAttributeInterceptable.class\\E"
+  }, {
+    "pattern":"\\Qorg/hibernate/engine/spi/PrimeAmongSecondarySupertypes.class\\E"
+  }, {
+    "pattern":"\\Qorg/hibernate/engine/spi/SelfDirtinessTracker.class\\E"
+  }, {
     "pattern":"\\Qorg/hibernate/hibernate-configuration-3.0.dtd\\E"
   }, {
     "pattern":"\\Qorg/hibernate/hibernate-mapping-3.0.dtd\\E"
