@@ -1,0 +1,22 @@
+{
+  "bundles": [
+    {
+      "name": "org.hsqldb.resources.info-column-remarks",
+      "locales": [
+        ""
+      ]
+    },
+    {
+      "name": "org.hsqldb.resources.info-table-remarks",
+      "locales": [
+        ""
+      ]
+    },
+    {
+      "name": "org.hsqldb.resources.sql-state-messages",
+      "locales": [
+        ""
+      ]
+    }
+  ]
+}
