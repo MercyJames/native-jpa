@@ -18,6 +18,4 @@ spring:
       hibernate:
         format_sql: true
         highlight_sql: true
-        bytecode:
-          provider: none
         show_sql: true

@@ -19,6 +19,7 @@ public class HibernateNativeConfiguration {
                     org.hibernate.bytecode.internal.bytebuddy.BytecodeProviderImpl.class,
                     builder -> builder.withConstructor(java.util.Collections.emptyList(), ExecutableMode.INVOKE)
             );
+
         }
     }
 }
